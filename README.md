@@ -6,15 +6,17 @@
 3. `bot.py` is the backend for the chatbot.
 
 ## Pre-reqs and run steps
-1. Tested with python 3.13.5. Please ensure version is of at least 3.13.5, as backward compatability was not tested.
+1. Tested with python 3.13.5. Please ensure version similarity, as backward compatability was not tested.
 2. Application was tested on a macOS setup and was not tested against a Windows environment.
 3. Ensure you have a personal groq API key.
 4. Create a `.env` file in the root folder and place your API key in the file as such: `API_KEY={YOUR_API_KEY}`
 5. Run the `run.sh` script with the following command: `bash run.sh`. The script will create a virtual environment and install any required dependencies as specified in the `requirements.txt` file. It will then execute the 3 python scripts `bot.py`, `admin_ui.py`, `chat_ui.py`.
+6. The .sh script runs the python programs in the background. To terminate the application use `ps -A` to list all processes and find the PID for the relevant processes (you can `ctrl + f` and search `atome` to find the relevant jobs). Then using the PID you may kill the job with `kill -9 [PID1] [PID2] [PID3]`. In an event the local port 8000 is still being used, by the application you can terminate it by `sudo lsof -t -i tcp:8000 | xargs kill -9`. 
 
 ## Known issues and fixes
-1. As the `run.sh` script automates running the chatbot application, the frontend python applications (`chat_ui and admin_ui`) may load before the `bot.py` is fully initialized. In this event you may see the following error: The fix for this is just to wait a few seconds and refresh the page until the error disappears.
-2. When entering the knowledge base url or any other inputs in the `admin_ui.py`, it may not capture the entered information and revert to the older value. I.e. in the following images, I had used the .sg url however the application still reverted to the original .ph url that was pre-populated in the field. The fix for this, is to just re-enter the desired inputs and click on the save button once more.
+1. As the `run.sh` script automates running the chatbot application, the frontend python applications (`chat_ui and admin_ui`) may load before the `bot.py` is fully initialized. In this event you may see the following error: ![error_msg](images/admin_no_load.png)
+The fix for this is just to wait a few seconds and refresh the page until the error disappears. ![admin_fixed](images/admin_load.png)
+2. When entering the knowledge base url or any other inputs in the `admin_ui.py`, it may not capture the entered information and revert to the older value. I.e. in the following images, I had used the .sg url however the application still reverted to the original .ph url that was pre-populated in the field. ![wrong_url](images/admin_wrong_url.png) The fix for this, is to just re-enter the desired inputs and click on the save button once more. ![right_url](images/admin_right_url.png)
 
 ## Potential enhancements & Feedback
 1. The main aim of this project was to showcase a POC, focusing on the backend elements. Hence streamlit was used for the frontend to speed up prototyping. This has resulted in some of the known issues mentioned above. As always, a full frontend framework could be used with more interactions (chat bubbles, typing indicator etc). Application could also be deployed.
