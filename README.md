@@ -15,7 +15,7 @@
 
 ## Known issues and fixes
 1. As the `run.sh` script automates running the chatbot application, the frontend python applications (`chat_ui and admin_ui`) may load before the `bot.py` is fully initialized. In this event you may see the following error: ![error_msg](images/admin_no_load.png)
-The fix for this is just to wait a few seconds and refresh the page until the error disappears. ![admin_fixed](images/admin_load.png)
+The fix for this is just to wait a few seconds and refresh the page until the error disappears. Essentially we need to wait for the `bot.py` to be fully initialized. ![admin_fixed](images/admin_load.png)
 2. When entering the knowledge base url or any other inputs in the `admin_ui.py`, it may not capture the entered information and revert to the older value. I.e. in the following images, I had used the .sg url however the application still reverted to the original .ph url that was pre-populated in the field. ![wrong_url](images/admin_wrong_url.png) The fix for this, is to just re-enter the desired inputs and click on the save button once more. ![right_url](images/admin_right_url.png)
 
 ## Potential enhancements & Feedback
