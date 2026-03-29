@@ -1,0 +1,8 @@
+[
+  {
+    "agent": null,
+    "question": "what is nus",
+    "wrong_response": "Based on the context provided, it seems that \"NRIC\" is mentioned, which stands for National Registration Identity Card. However, \"NUS\" is not mentioned in the given context. \n\nIf you could provide more context or information about what \"NUS\" refers to, I'll be happy to help you further.",
+    "corrected_response": "NUS typically stands for National University of Singapore, a public research university in Singapore."
+  }
+]

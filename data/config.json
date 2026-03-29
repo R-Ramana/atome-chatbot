@@ -1,0 +1,5 @@
+{
+  "kb_url": "https://help.atome.ph/hc/en-gb/categories/4439682039065-Atome-Card",
+  "instructions": "If user asks about application status call get_application_status. If transaction succeeds ask for phone number and transaction id then call get_transaction_status.",
+  "active_agent": null
+}
